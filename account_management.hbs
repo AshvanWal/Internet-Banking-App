@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Management</title>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <a style="float:left" class="btn btn-primary btn-sm" href="/home/{{username}}" role="button">Back to Homepage</a>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            overflow-x: hidden;
+            font-family: 'Libre Baskerville', serif;
+            color: black;
+            background: gold;
+
+        }
+        .body-container{
+
+            min-height: 100vh;
+        }
+        .content-wrap{
+            padding-bottom: 2rem;
+        }
+
+        .label{
+            width: 90%;
+            text-align: left;
+        }
+        .forgot-link{
+            text-align: right;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+        .navbar {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .1rem;
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand img{
+            height: 3.5rem;
+        }
+        .navbar-nav li{
+            padding-right: .7rem;
+        }
+        .navbar-dark .navbar-nav .navbar-link {
+            color: gold;
+            padding-top: .8rem;
+        }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: goldenrod;
+        }
+
+    </style>
+</head>
+
+
+<div class="body-container">
+    <div class="content-wrap">
+        <header class="space">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" alt=""> Citrus account management</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>-->
+            </nav>
+        </header>
+
+    </div>
+
+    <body style="background-color:yellow">
+
+    <div class="container " id = "content" style="border-radius: 20px;background-color: rgba(250,255,251,0.64);padding-top:20px;padding-bottom: 20px">
+
+
+
+        <div class="container"  >
+            <h2> {{username}}</h2>
+            <table class="table">
+
+                <tbody>
+                <tr>
+                    <td>Password</td>
+                    <td>********</td>
+
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>{{first_name}}</td>
+
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td>{{last_name}}</td>
+
+                </tr>
+                <tr>
+                    <td>Checking Amount:</td>
+                    <td>{{checkings}}</td>
+
+                </tr>
+                <tr>
+                    <td>Saving Amount:</td>
+                    <td>{{savings}}</td>
+
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{email}}</td>
+
+                </tr>
+
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>{{phone_num}}</td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <footer>
+        &#169;Citrus Bank 2019 - All Rights Reserved
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

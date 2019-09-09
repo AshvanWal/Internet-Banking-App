@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <div class="collapse sidenav-collapse" id="sidenav">
+        {{> navbar}}
+        {{> nav_format}}
+    </div>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .container{
+            text-align:center;
+            padding-top: 100px;
+        }
+        .jumbotron{
+            border-radius:50px;
+            background-color:#faf2a1;
+            border-style: solid;
+        }
+        .jumbotron h1, p{
+            color: #4d4d4d;
+        }
+        body{
+            background-color:gold;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+        .ham{
+            border: solid orange;
+            border-radius: 3px;
+        }
+        .ham button{
+            position: fixed;
+            right: 1%;
+            top: 1%;
+        }
+        .navbar {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .1rem;
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand img{
+            height: 3rem;
+        }
+        .navbar-nav li{
+            padding-right: .7rem;
+        }
+        .navbar-dark .navbar-nav .navbar-link {
+            color: gold;
+            padding-top: .8rem;
+        }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: goldenrod;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+<div class="content-wrap">
+    <header class="space">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" alt=""> Citrus Bank Login</a>
+            <div class="ham">
+                <button class="btn btn-warning" type="button" data-toggle="collapse" data-target=".sidenav-collapse"
+                        aria-controls="sidenav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars fa-2x"></i>
+                    <!--<i class="fa fa-times fa-2x collapse icon-collapse" id="icon"></i>-->
+                </button>
+            </div>
+            <!--
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                        </ul>
+                    </div>-->
+        </nav>
+    </header>
+</div>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome Back {{first_name}}</h1>
+        <p class="lead">Checking Account: {{checkings}} </p>
+        <p class="lead">Savings Account: {{savings}}</p>
+<p class="lead">Foreign Currencies:{{#each foreign_cur}} {{this}} {{/each}}</p>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" class="card-img" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">About US</h5>
+                <p class="card-text">We are here to deliver an user friendly internet banking website to help users of all age interact with their banking information.
+                    We follow the rules of easy to use, simple, and secure.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="max-width: 540px;">
+
+</div>
+
+<footer>
+    &#169;Citrus Bank 2019 - All Rights Reserved
+</footer>
+
+
+
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

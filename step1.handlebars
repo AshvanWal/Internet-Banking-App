@@ -1,0 +1,24 @@
+{{#if error}}
+    <p>{{error}}=</p>
+{{/if}}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+
+
+<p>Please enter your phone number in international format, starting with
++) to receive verification code:</p>
+
+<form method="post" action="/step2/{{username}}">
+    <label>
+        <input type = "tel" name="number" />
+    </label>
+    <input type="submit" value="Send code" />
+</form>
+</html>

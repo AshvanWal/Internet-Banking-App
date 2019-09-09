@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            overflow-x: hidden;
+            font-family: 'Libre Baskerville', serif;
+            color: black;
+            background: gold;
+            text-align: center;
+        }
+        .body-container{
+            position: relative;
+            min-height: 100vh;
+        }
+        .content-wrap{
+            padding-bottom: 2.5rem;
+        }
+        label{
+            text-align: left;
+            width: 90%;
+            color: #4d4d4d;
+        }
+        .label{
+            width: 90%;
+            text-align: left;
+        }
+        .forgot-link{
+            text-align: right;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+        .navbar {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .1rem;
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand img{
+            height: 3.5rem;
+        }
+        .navbar-nav li{
+            padding-right: .7rem;
+        }
+        .navbar-dark .navbar-nav .navbar-link {
+            color: gold;
+            padding-top: .8rem;
+        }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: goldenrod;
+        }
+        .space{
+            padding-bottom: 300px;
+        }
+        .jumbotron{
+            border-radius: 30px;
+            background: #eae395;
+            width: 500px;
+            height: 500px;
+        }
+        .login-form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 30px;
+            padding: 20px 0 20px 0;
+        }
+        .login-form input[type="password"],
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing:border-box;
+        }
+        .login-form button[type="submit"],
+        .login-form button[type="button"] {
+            width: 90%;
+            padding: 15px;
+            margin-bottom: 5px;
+            background-color: #92c7c1;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="body-container">
+    <div class="content-wrap">
+        <header class="space">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" alt=""> Citrus Bank Login</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </header>
+        <div class="login-form jumbotron" style="height: 400px">
+            <div class="background">
+                <div class="main">
+                    <h1>Hit <strong>Send Confirmation</strong>  to receive an email and confirm your account</h1>
+                    <br>
+                    <form action="/create-account" method="POST">
+                        <input name="email" type="email" placeholder="    Email" required="required">
+                        <br>
+                        <br>
+                        <input class="btn btn-primary" type="submit" id="resetBtn" value="Send Confirmation">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &#169;Citrus Bank 2019 - All Rights Reserved
+    </footer>
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

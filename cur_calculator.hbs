@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <a class="btn btn-primary btn-sm" href="/home/{{username}}" role="button">Back to Homepage</a>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .button{
+
+            font-size: 30px;
+            color: #111111;
+            height: 100px;
+            width:100px;
+            background-color: #ffff77;
+            margin-right:10px;
+            margin-bottom:10px;
+
+        }
+
+        .box {
+            font-size: 40px;
+            height:80px;
+            background-color: #fff5b5;
+
+        }
+
+        .input-box {
+            font-size: 20px;
+            height:60px;
+            background-color: #fff5b5;
+
+        }
+
+        .mytable{
+            margin-top: 20px;
+            background-color: #fff5b5;
+
+        }
+    </style>
+    <script>
+
+
+        function convert(){
+            var amount = document.getElementById("Amount").value;
+            if(amount<0){
+                alert("Input must be Positive Number");
+                return
+            }
+
+            var firstcurr = document.getElementById("currency1").value;
+            var secondcurr = document.getElementById("currency2").value;
+            if (firstcurr == secondcurr){
+                alert("Currency must be different")
+                return
+
+            }
+            var request = new XMLHttpRequest();
+            request.open('GET','http://data.fixer.io/api/latest?access_key=5c8f0e7cc743c0b5df34b3703e2b51fb&format=1');
+            request.onload = function(){
+                var ourdata = JSON.parse(request.responseText);
+                console.log(ourdata);
+
+                var euro = amount / ourdata.rates[firstcurr];
+                var final = euro  * ourdata.rates[secondcurr];
+                final = final.toFixed(2)
+                final = final.toString();
+                document.getElementById('output').value= final;
+
+
+            };
+            request.send()
+
+
+
+
+
+        }
+        function convertrealtime(){
+            var amount = document.getElementById("Amount").value;
+            if(amount<0){
+                alert("Input must be Positive Number");
+                return
+            }
+
+            var firstcurr = document.getElementById("currency1").value;
+            var secondcurr = document.getElementById("currency2").value;
+
+
+            var request = new XMLHttpRequest();
+            request.open('GET','http://data.fixer.io/api/latest?access_key=5c8f0e7cc743c0b5df34b3703e2b51fb&format=1');
+            request.onload = function(){
+                var ourdata = JSON.parse(request.responseText);
+                console.log(ourdata);
+                var euro = amount / ourdata.rates[firstcurr];
+                var final = euro  * ourdata.rates[secondcurr];
+                final = final.toFixed(2)
+                        final = final.toString();
+                document.getElementById('output').value= final;
+
+
+                document.getElementById('rate').value = 1 + " "+ firstcurr + " = " + ourdata.rates[secondcurr] + " " + secondcurr
+
+
+            };
+            request.send()
+
+
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+
+
+
+
+
+<br>
+
+
+
+
+
+<!--<div class="row jumbotron">-->
+    <!--<div class="input-group input-group-lg col-lg-12 form-inline" >-->
+        <!--<form action="convert/{{username}}" method="POST">-->
+            <!--<input  min ='0' value="0"   name="origin" id="Amount" type="number" class="form-control" placeholder="Amount" aria-describedby="basic-addon1">-->
+            <!--<input min ='0' value="0"   name="output" id="output"  class="form-control" placeholder="Amount" aria-describedby="basic-addon1">-->
+
+            <!--From<select name ="curr1" class="custom-select " id="currency1">-->
+                <!--<option selected> Savings </option>-->
+            <!---->
+             <!---->
+            <!--</select>-->
+
+
+            <!--Target<select name="curr2" class="custom-select " id="currency2">-->
+                <!--<option selected>EUR</option>-->
+                <!--<option> AED </option>-->
+                <!--<option> AFN </option>-->
+                <!--<option> ALL </option>-->
+                <!--<option> AMD </option>-->
+                <!--<option> ANG </option>-->
+                <!--<option> AOA </option>-->
+                <!--<option> ARS </option>-->
+                <!--<option> AUD </option>-->
+                <!--<option> AWG </option>-->
+                <!--<option> AZN </option>-->
+                <!--<option> BAM </option>-->
+                <!--<option> BBD </option>-->
+                <!--<option> BDT </option>-->
+                <!--<option> BGN </option>-->
+                <!--<option> BHD </option>-->
+                <!--<option> BIF </option>-->
+                <!--<option> BMD </option>-->
+                <!--<option> BND </option>-->
+                <!--<option> BOB </option>-->
+                <!--<option> BRL </option>-->
+                <!--<option> BSD </option>-->
+                <!--<option> BTC </option>-->
+                <!--<option> BTN </option>-->
+                <!--<option> BWP </option>-->
+                <!--<option> BYN </option>-->
+                <!--<option> BYR </option>-->
+                <!--<option> BZD </option>-->
+                <!--<option> CAD </option>-->
+                <!--<option> CDF </option>-->
+                <!--<option> CHF </option>-->
+                <!--<option> CLF </option>-->
+                <!--<option> CLP </option>-->
+                <!--<option> CNY </option>-->
+                <!--<option> COP </option>-->
+                <!--<option> CRC </option>-->
+                <!--<option> CUC </option>-->
+                <!--<option> CUP </option>-->
+                <!--<option> CVE </option>-->
+                <!--<option> CZK </option>-->
+                <!--<option> DJF </option>-->
+                <!--<option> DKK </option>-->
+                <!--<option> DOP </option>-->
+                <!--<option> DZD </option>-->
+                <!--<option> EGP </option>-->
+                <!--<option> ERN </option>-->
+                <!--<option> ETB </option>-->
+                <!--<option> EUR </option>-->
+                <!--<option> FJD </option>-->
+                <!--<option> FKP </option>-->
+                <!--<option> GBP </option>-->
+                <!--<option> GEL </option>-->
+                <!--<option> GGP </option>-->
+                <!--<option> GHS </option>-->
+                <!--<option> GIP </option>-->
+                <!--<option> GMD </option>-->
+                <!--<option> GNF </option>-->
+                <!--<option> GTQ </option>-->
+                <!--<option> GYD </option>-->
+                <!--<option> HKD </option>-->
+                <!--<option> HNL </option>-->
+                <!--<option> HRK </option>-->
+                <!--<option> HTG </option>-->
+                <!--<option> HUF </option>-->
+                <!--<option> IDR </option>-->
+                <!--<option> ILS </option>-->
+                <!--<option> IMP </option>-->
+                <!--<option> INR </option>-->
+                <!--<option> IQD </option>-->
+                <!--<option> IRR </option>-->
+                <!--<option> ISK </option>-->
+                <!--<option> JEP </option>-->
+                <!--<option> JMD </option>-->
+                <!--<option> JOD </option>-->
+                <!--<option> JPY </option>-->
+                <!--<option> KES </option>-->
+                <!--<option> KGS </option>-->
+                <!--<option> KHR </option>-->
+                <!--<option> KMF </option>-->
+                <!--<option> KPW </option>-->
+                <!--<option> KRW </option>-->
+                <!--<option> KWD </option>-->
+                <!--<option> KYD </option>-->
+                <!--<option> KZT </option>-->
+                <!--<option> LAK </option>-->
+                <!--<option> LBP </option>-->
+                <!--<option> LKR </option>-->
+                <!--<option> LRD </option>-->
+                <!--<option> LSL </option>-->
+                <!--<option> LTL </option>-->
+                <!--<option> LVL </option>-->
+                <!--<option> LYD </option>-->
+                <!--<option> MAD </option>-->
+                <!--<option> MDL </option>-->
+                <!--<option> MGA </option>-->
+                <!--<option> MKD </option>-->
+                <!--<option> MMK </option>-->
+                <!--<option> MNT </option>-->
+                <!--<option> MOP </option>-->
+                <!--<option> MRO </option>-->
+                <!--<option> MUR </option>-->
+                <!--<option> MVR </option>-->
+                <!--<option> MWK </option>-->
+                <!--<option> MXN </option>-->
+                <!--<option> MYR </option>-->
+                <!--<option> MZN </option>-->
+                <!--<option> NAD </option>-->
+                <!--<option> NGN </option>-->
+                <!--<option> NIO </option>-->
+                <!--<option> NOK </option>-->
+                <!--<option> NPR </option>-->
+                <!--<option> NZD </option>-->
+                <!--<option> OMR </option>-->
+                <!--<option> PAB </option>-->
+                <!--<option> PEN </option>-->
+                <!--<option> PGK </option>-->
+                <!--<option> PHP </option>-->
+                <!--<option> PKR </option>-->
+                <!--<option> PLN </option>-->
+                <!--<option> PYG </option>-->
+                <!--<option> QAR </option>-->
+                <!--<option> RON </option>-->
+                <!--<option> RSD </option>-->
+                <!--<option> RUB </option>-->
+                <!--<option> RWF </option>-->
+                <!--<option> SAR </option>-->
+                <!--<option> SBD </option>-->
+                <!--<option> SCR </option>-->
+                <!--<option> SDG </option>-->
+                <!--<option> SEK </option>-->
+                <!--<option> SGD </option>-->
+                <!--<option> SHP </option>-->
+                <!--<option> SLL </option>-->
+                <!--<option> SOS </option>-->
+                <!--<option> SRD </option>-->
+                <!--<option> STD </option>-->
+                <!--<option> SVC </option>-->
+                <!--<option> SYP </option>-->
+                <!--<option> SZL </option>-->
+                <!--<option> THB </option>-->
+                <!--<option> TJS </option>-->
+                <!--<option> TMT </option>-->
+                <!--<option> TND </option>-->
+                <!--<option> TOP </option>-->
+                <!--<option> TRY </option>-->
+                <!--<option> TTD </option>-->
+                <!--<option> TWD </option>-->
+                <!--<option> TZS </option>-->
+                <!--<option> UAH </option>-->
+                <!--<option> UGX </option>-->
+                <!--<option> USD </option>-->
+                <!--<option> UYU </option>-->
+                <!--<option> UZS </option>-->
+                <!--<option> VEF </option>-->
+                <!--<option> VND </option>-->
+                <!--<option> VUV </option>-->
+                <!--<option> WST </option>-->
+                <!--<option> XAF </option>-->
+                <!--<option> XAG </option>-->
+                <!--<option> XAU </option>-->
+                <!--<option> XCD </option>-->
+                <!--<option> XDR </option>-->
+                <!--<option> XOF </option>-->
+                <!--<option> XPF </option>-->
+                <!--<option> YER </option>-->
+                <!--<option> ZAR </option>-->
+                <!--<option> ZMK </option>-->
+                <!--<option> ZMW </option>-->
+                <!--<option> ZWL </option>-->
+            <!--</select>-->
+            <!--<button onclick="convert()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm">sumbit   </button>-->
+
+            <!--<div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+                <!--<div class="modal-dialog" >-->
+                    <!--<div class="modal-content">-->
+                        <!--<div class="modal-header">-->
+                            <!--<h5 class="modal-title">CONFIRM?</h5>-->
+                        <!--</div>-->
+
+                        <!--<div class="modal-footer">-->
+                            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>-->
+                            <!--<button type="submit" class="btn btn-primary">Save changes</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+        <!--</form>-->
+
+    <!--</div>-->
+
+<!--</div>-->
+
+
+
+<div class="container" >
+    <div class="jumbotron">
+        <div class="row">
+
+            <form class="col-lg-12 row" action="convert/{{username}}" method="POST">
+                <div class="btn-group-vertical col-lg-5 ml-12 mt-12" role="group" aria-label="Basic example" style="background-color: #ffca7b;padding: 50px;border-radius:  20px 0px 0px 20px;" >
+                    <div class="btn-group">
+                        <input class="box form-control col-lg-9 text-center form-control-lg mb-2"   min ='0' value="0"   name="origin" id="Amount" type="number"   aria-describedby="basic-addon1" >
+
+                        <select onchange="convertrealtime()" name ="curr1" class="custom-select input-box col-lg-3 " id="currency1">
+                            <option selected> CAD </option>
+                            <!--<option> AED </option>-->
+                            <!--<option> AFN </option>-->
+                            <!--<option> ALL </option>-->
+                            <!--<option> AMD </option>-->
+                            <!--<option> ANG </option>-->
+                            <!--<option> AOA </option>-->
+                            <!--<option> ARS </option>-->
+                            <!--<option> AUD </option>-->
+                            <!--<option> AWG </option>-->
+                            <!--<option> AZN </option>-->
+                            <!--<option> BAM </option>-->
+                            <!--<option> BBD </option>-->
+                            <!--<option> BDT </option>-->
+                            <!--<option> BGN </option>-->
+                            <!--<option> BHD </option>-->
+                            <!--<option> BIF </option>-->
+                            <!--<option> BMD </option>-->
+                            <!--<option> BND </option>-->
+                            <!--<option> BOB </option>-->
+                            <!--<option> BRL </option>-->
+                            <!--<option> BSD </option>-->
+                            <!--<option> BTC </option>-->
+                            <!--<option> BTN </option>-->
+                            <!--<option> BWP </option>-->
+                            <!--<option> BYN </option>-->
+                            <!--<option> BYR </option>-->
+                            <!--<option> BZD </option>-->
+                            <!--<option> CAD </option>-->
+                            <!--<option> CDF </option>-->
+                            <!--<option> CHF </option>-->
+                            <!--<option> CLF </option>-->
+                            <!--<option> CLP </option>-->
+                            <!--<option> CNY </option>-->
+                            <!--<option> COP </option>-->
+                            <!--<option> CRC </option>-->
+                            <!--<option> CUC </option>-->
+                            <!--<option> CUP </option>-->
+                            <!--<option> CVE </option>-->
+                            <!--<option> CZK </option>-->
+                            <!--<option> DJF </option>-->
+                            <!--<option> DKK </option>-->
+                            <!--<option> DOP </option>-->
+                            <!--<option> DZD </option>-->
+                            <!--<option> EGP </option>-->
+                            <!--<option> ERN </option>-->
+                            <!--<option> ETB </option>-->
+                            <!--<option> EUR </option>-->
+                            <!--<option> FJD </option>-->
+                            <!--<option> FKP </option>-->
+                            <!--<option> GBP </option>-->
+                            <!--<option> GEL </option>-->
+                            <!--<option> GGP </option>-->
+                            <!--<option> GHS </option>-->
+                            <!--<option> GIP </option>-->
+                            <!--<option> GMD </option>-->
+                            <!--<option> GNF </option>-->
+                            <!--<option> GTQ </option>-->
+                            <!--<option> GYD </option>-->
+                            <!--<option> HKD </option>-->
+                            <!--<option> HNL </option>-->
+                            <!--<option> HRK </option>-->
+                            <!--<option> HTG </option>-->
+                            <!--<option> HUF </option>-->
+                            <!--<option> IDR </option>-->
+                            <!--<option> ILS </option>-->
+                            <!--<option> IMP </option>-->
+                            <!--<option> INR </option>-->
+                            <!--<option> IQD </option>-->
+                            <!--<option> IRR </option>-->
+                            <!--<option> ISK </option>-->
+                            <!--<option> JEP </option>-->
+                            <!--<option> JMD </option>-->
+                            <!--<option> JOD </option>-->
+                            <!--<option> JPY </option>-->
+                            <!--<option> KES </option>-->
+                            <!--<option> KGS </option>-->
+                            <!--<option> KHR </option>-->
+                            <!--<option> KMF </option>-->
+                            <!--<option> KPW </option>-->
+                            <!--<option> KRW </option>-->
+                            <!--<option> KWD </option>-->
+                            <!--<option> KYD </option>-->
+                            <!--<option> KZT </option>-->
+                            <!--<option> LAK </option>-->
+                            <!--<option> LBP </option>-->
+                            <!--<option> LKR </option>-->
+                            <!--<option> LRD </option>-->
+                            <!--<option> LSL </option>-->
+                            <!--<option> LTL </option>-->
+                            <!--<option> LVL </option>-->
+                            <!--<option> LYD </option>-->
+                            <!--<option> MAD </option>-->
+                            <!--<option> MDL </option>-->
+                            <!--<option> MGA </option>-->
+                            <!--<option> MKD </option>-->
+                            <!--<option> MMK </option>-->
+                            <!--<option> MNT </option>-->
+                            <!--<option> MOP </option>-->
+                            <!--<option> MRO </option>-->
+                            <!--<option> MUR </option>-->
+                            <!--<option> MVR </option>-->
+                            <!--<option> MWK </option>-->
+                            <!--<option> MXN </option>-->
+                            <!--<option> MYR </option>-->
+                            <!--<option> MZN </option>-->
+                            <!--<option> NAD </option>-->
+                            <!--<option> NGN </option>-->
+                            <!--<option> NIO </option>-->
+                            <!--<option> NOK </option>-->
+                            <!--<option> NPR </option>-->
+                            <!--<option> NZD </option>-->
+                            <!--<option> OMR </option>-->
+                            <!--<option> PAB </option>-->
+                            <!--<option> PEN </option>-->
+                            <!--<option> PGK </option>-->
+                            <!--<option> PHP </option>-->
+                            <!--<option> PKR </option>-->
+                            <!--<option> PLN </option>-->
+                            <!--<option> PYG </option>-->
+                            <!--<option> QAR </option>-->
+                            <!--<option> RON </option>-->
+                            <!--<option> RSD </option>-->
+                            <!--<option> RUB </option>-->
+                            <!--<option> RWF </option>-->
+                            <!--<option> SAR </option>-->
+                            <!--<option> SBD </option>-->
+                            <!--<option> SCR </option>-->
+                            <!--<option> SDG </option>-->
+                            <!--<option> SEK </option>-->
+                            <!--<option> SGD </option>-->
+                            <!--<option> SHP </option>-->
+                            <!--<option> SLL </option>-->
+                            <!--<option> SOS </option>-->
+                            <!--<option> SRD </option>-->
+                            <!--<option> STD </option>-->
+                            <!--<option> SVC </option>-->
+                            <!--<option> SYP </option>-->
+                            <!--<option> SZL </option>-->
+                            <!--<option> THB </option>-->
+                            <!--<option> TJS </option>-->
+                            <!--<option> TMT </option>-->
+                            <!--<option> TND </option>-->
+                            <!--<option> TOP </option>-->
+                            <!--<option> TRY </option>-->
+                            <!--<option> TTD </option>-->
+                            <!--<option> TWD </option>-->
+                            <!--<option> TZS </option>-->
+                            <!--<option> UAH </option>-->
+                            <!--<option> UGX </option>-->
+                            <!--<option> USD </option>-->
+                            <!--<option> UYU </option>-->
+                            <!--<option> UZS </option>-->
+                            <!--<option> VEF </option>-->
+                            <!--<option> VND </option>-->
+                            <!--<option> VUV </option>-->
+                            <!--<option> WST </option>-->
+                            <!--<option> XAF </option>-->
+                            <!--<option> XAG </option>-->
+                            <!--<option> XAU </option>-->
+                            <!--<option> XCD </option>-->
+                            <!--<option> XDR </option>-->
+                            <!--<option> XOF </option>-->
+                            <!--<option> XPF </option>-->
+                            <!--<option> YER </option>-->
+                            <!--<option> ZAR </option>-->
+                            <!--<option> ZMK </option>-->
+                            <!--<option> ZMW </option>-->
+                            <!--<option> ZWL </option>-->
+                        </select>
+                    </div>
+                    <div class="btn-group  ">
+                        <button type="button" style="border-radius: 30px" class="   btn btn-outline-warning button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 1;convertrealtime()">1</button>
+
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 2;convertrealtime()">2</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 3;convertrealtime()">3</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 4;convertrealtime()">4</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 5;convertrealtime()">5</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 6;convertrealtime()">6</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning button  py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 7;convertrealtime()">7</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 8;convertrealtime()">8</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning  button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value*10 + 9;convertrealtime()">9</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-secondary button py-3" onclick="document.getElementById('Amount').value= Math.trunc(document.getElementById('Amount').value/10 );convertrealtime()">&lt;</button>
+                        <button type="button" style="border-radius: 30px" class="btn btn-outline-warning button py-3" onclick="document.getElementById('Amount').value=document.getElementById('Amount').value + '0';convertrealtime()">0</button>
+
+                        <button onclick="convert()" style="font-size:20px; border-radius: 20px;background-color: #1b8fff"  type="button" class="btn btn-primary button py-3" data-toggle="modal" data-target="#confirm">CONFIRM   </button>
+
+                    </div>
+
+
+                </div>
+                <div class="col-lg-1" style="background-color: #ffca7b"><br><br>=>></div>
+
+                <div class="col-lg-6"  style="background-color: #ffca7b;padding: 50px;border-radius: 0px 20px 20px 0px;" >
+                    <div class="row">
+
+                        <input min ='0' value="0"   name="output" id="output" placeholder="Amount" aria-describedby="basic-addon1" style="background: white;"  class="box form-control col-lg-9 text-center form-control-lg mb-2">
+                        <select onchange="convertrealtime()" name ="curr2" class="custom-select input-box col-lg-3 " id="currency2">
+
+                            <option selected> EUR </option>
+                            <option> AED </option>
+                            <option> AFN </option>
+                            <option> ALL </option>
+                            <option> AMD </option>
+                            <option> ANG </option>
+                            <option> AOA </option>
+                            <option> ARS </option>
+                            <option> AUD </option>
+                            <option> AWG </option>
+                            <option> AZN </option>
+                            <option> BAM </option>
+                            <option> BBD </option>
+                            <option> BDT </option>
+                            <option> BGN </option>
+                            <option> BHD </option>
+                            <option> BIF </option>
+                            <option> BMD </option>
+                            <option> BND </option>
+                            <option> BOB </option>
+                            <option> BRL </option>
+                            <option> BSD </option>
+                            <option> BTC </option>
+                            <option> BTN </option>
+                            <option> BWP </option>
+                            <option> BYN </option>
+                            <option> BYR </option>
+                            <option> BZD </option>
+                            <option> CAD </option>
+                            <option> CDF </option>
+                            <option> CHF </option>
+                            <option> CLF </option>
+                            <option> CLP </option>
+                            <option> CNY </option>
+                            <option> COP </option>
+                            <option> CRC </option>
+                            <option> CUC </option>
+                            <option> CUP </option>
+                            <option> CVE </option>
+                            <option> CZK </option>
+                            <option> DJF </option>
+                            <option> DKK </option>
+                            <option> DOP </option>
+                            <option> DZD </option>
+                            <option> EGP </option>
+                            <option> ERN </option>
+                            <option> ETB </option>
+                            <option> EUR </option>
+                            <option> FJD </option>
+                            <option> FKP </option>
+                            <option> GBP </option>
+                            <option> GEL </option>
+                            <option> GGP </option>
+                            <option> GHS </option>
+                            <option> GIP </option>
+                            <option> GMD </option>
+                            <option> GNF </option>
+                            <option> GTQ </option>
+                            <option> GYD </option>
+                            <option> HKD </option>
+                            <option> HNL </option>
+                            <option> HRK </option>
+                            <option> HTG </option>
+                            <option> HUF </option>
+                            <option> IDR </option>
+                            <option> ILS </option>
+                            <option> IMP </option>
+                            <option> INR </option>
+                            <option> IQD </option>
+                            <option> IRR </option>
+                            <option> ISK </option>
+                            <option> JEP </option>
+                            <option> JMD </option>
+                            <option> JOD </option>
+                            <option> JPY </option>
+                            <option> KES </option>
+                            <option> KGS </option>
+                            <option> KHR </option>
+                            <option> KMF </option>
+                            <option> KPW </option>
+                            <option> KRW </option>
+                            <option> KWD </option>
+                            <option> KYD </option>
+                            <option> KZT </option>
+                            <option> LAK </option>
+                            <option> LBP </option>
+                            <option> LKR </option>
+                            <option> LRD </option>
+                            <option> LSL </option>
+                            <option> LTL </option>
+                            <option> LVL </option>
+                            <option> LYD </option>
+                            <option> MAD </option>
+                            <option> MDL </option>
+                            <option> MGA </option>
+                            <option> MKD </option>
+                            <option> MMK </option>
+                            <option> MNT </option>
+                            <option> MOP </option>
+                            <option> MRO </option>
+                            <option> MUR </option>
+                            <option> MVR </option>
+                            <option> MWK </option>
+                            <option> MXN </option>
+                            <option> MYR </option>
+                            <option> MZN </option>
+                            <option> NAD </option>
+                            <option> NGN </option>
+                            <option> NIO </option>
+                            <option> NOK </option>
+                            <option> NPR </option>
+                            <option> NZD </option>
+                            <option> OMR </option>
+                            <option> PAB </option>
+                            <option> PEN </option>
+                            <option> PGK </option>
+                            <option> PHP </option>
+                            <option> PKR </option>
+                            <option> PLN </option>
+                            <option> PYG </option>
+                            <option> QAR </option>
+                            <option> RON </option>
+                            <option> RSD </option>
+                            <option> RUB </option>
+                            <option> RWF </option>
+                            <option> SAR </option>
+                            <option> SBD </option>
+                            <option> SCR </option>
+                            <option> SDG </option>
+                            <option> SEK </option>
+                            <option> SGD </option>
+                            <option> SHP </option>
+                            <option> SLL </option>
+                            <option> SOS </option>
+                            <option> SRD </option>
+                            <option> STD </option>
+                            <option> SVC </option>
+                            <option> SYP </option>
+                            <option> SZL </option>
+                            <option> THB </option>
+                            <option> TJS </option>
+                            <option> TMT </option>
+                            <option> TND </option>
+                            <option> TOP </option>
+                            <option> TRY </option>
+                            <option> TTD </option>
+                            <option> TWD </option>
+                            <option> TZS </option>
+                            <option> UAH </option>
+                            <option> UGX </option>
+                            <option> USD </option>
+                            <option> UYU </option>
+                            <option> UZS </option>
+                            <option> VEF </option>
+                            <option> VND </option>
+                            <option> VUV </option>
+                            <option> WST </option>
+                            <option> XAF </option>
+                            <option> XAG </option>
+                            <option> XAU </option>
+                            <option> XCD </option>
+                            <option> XDR </option>
+                            <option> XOF </option>
+                            <option> XPF </option>
+                            <option> YER </option>
+                            <option> ZAR </option>
+                            <option> ZMK </option>
+                            <option> ZMW </option>
+                            <option> ZWL </option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <textarea class="form-control input-box" id="rate" ></textarea>
+                    </div>
+
+                    <table class="table mytable">
+
+                        <tbody>
+
+                        <tr>
+                            <td>Checking Amount:</td>
+                            <td>{{checkings}}</td>
+                        </tr>
+                        <tr>
+                            <td>Saving Amount:</td>
+                            <td>{{savings}}</td>
+
+                        </tr>
+                        <tr>
+                            <td>Currency:</td>
+                            <td>
+                                <!--<a class="btn btn-primary" data-toggle="collapse" href="#currency" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"> Currency</a>-->
+
+                                <!--<div class="collapse multi-collapse" id="curre2ncy">-->
+                                {{#each foreign_cur}} {{this}} {{/each}}
+
+                                <!--</div>-->
+
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">CONFIRM?</h5>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
+<!--</'http://api.openrates.io/latest'-->

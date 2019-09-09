@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <div class="collapse sidenav-collapse" id="sidenav">
+        {{> navbar}}
+        {{> nav_format}}
+    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        .jumbotron{
+            border-radius:50px;
+            background: linear-gradient(40deg,#ffd86f, #ffbf00)!important;
+            border-style: solid;
+            border-color: #eae395;
+            -webkit-box-shadow: -11px -5px 20px -4px rgba(0,0,0,0.75);
+            -moz-box-shadow: -11px -5px 20px -4px rgba(0,0,0,0.75);
+            box-shadow: -11px -5px 20px -4px rgba(0,0,0,0.75);
+            width: 600px;
+            margin-top: 200px;
+            text-align: center;
+        }
+        .jumbotron h1, p{
+            color: #4d4d4d;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+        body{
+            background-color:gold;
+        }
+        .navbar {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .1rem;
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand img{
+            height: 3rem;
+        }
+        .navbar-nav li{
+            padding-right: .7rem;
+        }
+        .navbar-dark .navbar-nav .navbar-link {
+            color: gold;
+            padding-top: .8rem;
+        }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: goldenrod;
+        }
+        .login-form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 30px;
+            padding: 20px 0 20px 0;
+        }
+        .login-form input[type="password"],
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing:border-box;
+        }
+        .login-form button[type="submit"],
+        .login-form button[type="button"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 5px;
+            background-color: #92c7c1;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .content {
+            margin: 20px;
+        }
+        .content-wrap{
+            padding-bottom: 2.5rem;
+        }
+        label{
+            text-align: left;
+            width: 90%;
+            color: #4d4d4d;
+        }
+        .label{
+            width: 90%;
+            text-align: left;
+        }
+        .ham{
+            border: solid yellow;
+            border-radius: 3px;
+        }
+        .ham button{
+            background: linear-gradient(40deg,#ffd86f, #e37700)!important;
+            position: fixed;
+            right: 1%;
+            top: 1%;
+        }
+        .row{
+            width: 98%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-wrap">
+    <header class="space">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" alt=""> Citrus Bank Login</a>
+            <div class="ham">
+                <button class="btn orange-gradient" type="button" data-toggle="collapse" data-target=".sidenav-collapse"
+                        aria-controls="sidenav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars fa-2x"></i>
+                    <!--<i class="fa fa-times fa-2x collapse icon-collapse" id="icon"></i>-->
+                </button>
+            </div><!--
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>-->
+        </nav>
+    </header>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="jumbotron col-md-6">
+        <div class="content">
+        <form class="login-form" action="e_deposit/{{username}}" method="POST">
+            <h1 class="main_header">TRANSACTION FORM</h1>
+            <label class="label">
+                Deposit
+                <input type="text" name="password" placeholder="Set Password" >
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </label>
+        </form>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+<footer>
+    &#169;Citrus Bank 2019 - All Rights Reserved
+</footer>
+</html>

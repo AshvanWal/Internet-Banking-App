@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Login Form Tutorial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700'); /*retrived from google*/
+        body{
+            overflow-x: hidden;
+            font-family: 'Libre Baskerville', serif;
+            color: black;
+            background: gold;
+            text-align: center;
+        }
+        .body-container{
+            position: relative;
+            min-height: 100vh;
+        }
+        .content-wrap{
+            padding-bottom: 2.5rem;
+        }
+        label{
+            text-align: left;
+            width: 90%;
+            color: #4d4d4d;
+        }
+        .label{
+            width: 90%;
+            text-align: left;
+        }
+        .forgot-link{
+            text-align: right;
+            font-size: 12px;
+            width: 100%;
+        }
+        footer{
+            font-size: 18px;
+            text-align: right;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2) !important;
+            opacity: 0.9;
+        }
+        .navbar {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: .9rem;
+            letter-spacing: .1rem;
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+        .navbar-brand img{
+            height: 3.5rem;
+        }
+        .navbar-nav li{
+            padding-right: .7rem;
+        }
+        .navbar-dark .navbar-nav .navbar-link {
+            color: gold;
+            padding-top: .8rem;
+        }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: goldenrod;
+        }
+        .space{
+            padding-bottom: 300px;
+        }
+        .jumbotron{
+            border-radius:50px;
+            background: linear-gradient(40deg,#ffd86f, #ffbf00)!important;
+            border-style: solid;
+            border-color: #eae395;
+            -webkit-box-shadow: -11px -5px 20px -4px rgba(0,0,0,0. 5);
+            -moz-box-shadow: -11px -5px 20px -4px rgba(0,0,0,0.5);
+            box-shadow: -11px -5px 20px -4px rgba(0,0,0,0.5);
+            width: 500px;
+            height: 500px;
+        }
+        .login-form {
+            width: 500px;
+            margin: 0 auto;
+        }
+        .login-form h1 {
+            text-align: center;
+            color: #4d4d4d;
+            font-size: 30px;
+            padding: 20px 0 20px 0;
+        }
+        .login-form input[type="password"],
+        .login-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #dddddd;
+            margin-bottom: 15px;
+            box-sizing:border-box;
+        }
+        .login-form button[type="submit"],
+        .login-form button[type="button"] {
+            width: 90%;
+            padding: 15px;
+            margin-bottom: 5px;
+            background-color: #92c7c1;
+            border: 0;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="body-container">
+    <div class="content-wrap">
+        <header class="space">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="#"><img src="https://cdn.discordapp.com/attachments/159886180207427584/573241269548220446/orange.PNG" alt=""> Citrus Bank Login</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button><!--
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>-->
+            </nav>
+        </header>
+        <div class="login-form jumbotron">
+            <h1>Login</h1>
+            <form action="auth" method="POST">
+                <div>
+                    <label class="label">
+                        <span>
+                            Enter Username
+                        </span>
+                        <input type="text" name="username" placeholder="Username" required>
+                    </label>
+                </div>
+                <div>
+                    <label class="label">
+                        <div class="row">
+                            <span class="col-md-6">
+                                Enter Password
+                            </span>
+                            <span class="col-md-6 forgot-link">
+                                <a href="/reset-password">Forgot Password?</a>
+                            </span>
+                        </div>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </label>
+                </div>
+                <!--<input type="submit">-->
+                <button type="submit" class="btn-secondary">Submit</button>
+            </form>
+            <form action="register" method="GET">
+                <button type="submit" class="btn-secondary">Create Account</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &#169;Citrus Bank 2019 - All Rights Reserved
+    </footer>
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
